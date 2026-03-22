@@ -14,15 +14,15 @@ export function Login() {
       setUsername('')
       setPassword('')
     } catch (e) {
-      setError('Error al iniciar sesión')
+      setError('登录失败，请检查用户名和密码')
     }
   }
 
   if (token) {
     return (
       <div className="flex items-center justify-between gap-4">
-        <span className="text-sm text-brand-500 font-medium">Admin conectado</span>
-        <button className="btn" onClick={() => logout()}>Salir</button>
+        <span className="text-sm text-brand-500 font-medium">管理员已连接</span>
+        <button className="btn" onClick={() => logout()}>退出</button>
       </div>
     )
   }
@@ -30,9 +30,9 @@ export function Login() {
   return (
     <div className="space-y-3">
       <div className="flex gap-3">
-        <input className="input" placeholder='usuario' value={username} onChange={e => setUsername(e.target.value)} />
-        <input className="input" placeholder='contraseña' type='password' value={password} onChange={e => setPassword(e.target.value)} />
-        <button className="btn" onClick={handleLogin}>Login</button>
+        <input className="input" placeholder='用户名' value={username} onChange={e => setUsername(e.target.value)} />
+        <input className="input" placeholder='密码' type='password' value={password} onChange={e => setPassword(e.target.value)} />
+        <button className="btn" onClick={handleLogin}>登录</button>
       </div>
       {error && <div className="text-red-400 text-xs">{error}</div>}
     </div>

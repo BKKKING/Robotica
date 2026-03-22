@@ -11,7 +11,7 @@ const SocketContext = createContext<SocketContextType | undefined>(undefined)
 
 export function SocketProvider({ children }: { children: ReactNode }) {
   const wsRef = useRef<WebSocket | null>(null)
-  const [status, setStatus] = useState('desconectado')
+  const [status, setStatus] = useState('未连接')
   const [messages, setMessages] = useState<string[]>([])
 
   useEffect(() => {
@@ -19,14 +19,14 @@ export function SocketProvider({ children }: { children: ReactNode }) {
     let cancelled = false
     const connect = () => {
       if (cancelled) return
-      setStatus('conectando')
+      setStatus('连接中')
       const ws = new WebSocket('ws://localhost:8000/ws')
       wsRef.current = ws
-      ws.onopen = () => setStatus('conectado')
+      ws.onopen = () => setStatus('已连接')
       ws.onmessage = ev => setMessages(prev => [...prev, ev.data])
-      ws.onerror = () => setStatus('error')
+      ws.onerror = () => setStatus('错误')
       ws.onclose = () => {
-        setStatus('desconectado')
+        setStatus('未连接')
         if (!cancelled && retry === null) {
           retry = window.setTimeout(() => { retry = null; connect() }, 1500)
         }
@@ -53,6 +53,6 @@ export function SocketProvider({ children }: { children: ReactNode }) {
 
 export function useSocket() {
   const ctx = useContext(SocketContext)
-  if (!ctx) throw new Error('useSocket debe usarse dentro de SocketProvider')
+  if (!ctx) throw new Error('useSocket 必须在 SocketProvider 内部使用')
   return ctx
 }

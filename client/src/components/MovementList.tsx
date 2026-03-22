@@ -31,11 +31,11 @@ export function MovementList({ mode }: MovementListProps) {
   return (
     <div className="flex flex-col h-full">
       <div className="flex items-center justify-between mb-3">
-        <h4 className="text-lg font-semibold">Cola <span className="text-xs text-slate-400">({mode === 'sequential' ? 'Secuencial' : 'Paralelo'})</span></h4>
+        <h4 className="text-lg font-semibold">队列 <span className="text-xs text-slate-400">({mode === 'sequential' ? '顺序' : '并行'})</span></h4>
         <div className="flex gap-2">
-          <button className="btn" onClick={refresh}>Actualizar</button>
-          <button className="btn" onClick={start} disabled={disabled}>Iniciar</button>
-          <button className="btn" onClick={reset} disabled={disabled}>Reset</button>
+          <button className="btn" onClick={refresh}>刷新</button>
+          <button className="btn" onClick={start} disabled={disabled}>启动</button>
+          <button className="btn" onClick={reset} disabled={disabled}>重置</button>
         </div>
       </div>
       <ul className="flex-1 overflow-auto space-y-1 text-xs font-mono">
@@ -44,7 +44,7 @@ export function MovementList({ mode }: MovementListProps) {
             {JSON.stringify(it)}
           </li>
         ))}
-        {items.length === 0 && <li className="text-slate-500">(vacío)</li>}
+        {items.length === 0 && <li className="text-slate-500">(空)</li>}
       </ul>
     </div>
   )
