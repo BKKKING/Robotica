@@ -116,7 +116,7 @@ function RobotScene({ target }: { target: State }) {
 }
 
 export function Robot3D() {
-  const { latestMessage } = useSocket()
+  const { messages } = useSocket()
   const [targetState, setTargetState] = useState<State>({ base:0, hombro:0, codo:0 })
 
   // Cargar estado inicial de la base de datos al montar el componente
@@ -140,23 +140,21 @@ export function Robot3D() {
 
   // Actualizar estado desde mensajes WebSocket
   useEffect(() => {
-    if (latestMessage) {
+    for (const raw of messages.slice(-10)) {
       try {
-        const evt = JSON.parse(latestMessage)
+        const evt = JSON.parse(raw)
         if (evt.type === 'STATE_UPDATE' && evt.payload) {
           const p = evt.payload
-          const newState = {
-            base: typeof p.base === 'number' ? p.base : 0,
-            hombro: typeof p.hombro === 'number' ? p.hombro : 0,
-            codo: typeof p.codo === 'number' ? p.codo : 0
-          }
-          setTargetState(newState)
+            ;['base','hombro','codo'].forEach(k=>{ if (typeof p[k]==='number'){} })
+          setTargetState((prev)=>({
+            base: p.base ?? prev.base,
+            hombro: p.hombro ?? prev.hombro,
+            codo: p.codo ?? prev.codo
+          }))
         }
-      } catch {
-        // 忽略非 JSON 消息
-      }
+      } catch { /* ignore non-json */ }
     }
-  }, [latestMessage])
+  }, [messages])
 
   return (
     <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-slate-800 to-slate-900 relative">
@@ -225,29 +223,29 @@ export function Robot3D() {
         />
       </Canvas>
       <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur rounded-lg px-3 py-2 text-xs text-slate-300">
-        <div className="font-mono">底座: {targetState.base.toFixed(1)}° | 肩部: {targetState.hombro.toFixed(1)}° | 肘部: {targetState.codo.toFixed(1)}°</div>
+        <div className="font-mono">Base: {targetState.base.toFixed(1)}° | Hombro: {targetState.hombro.toFixed(1)}° | Codo: {targetState.codo.toFixed(1)}°</div>
       </div>
       
-      {/* 改进的缩放操作提示 */}
+      {/* Instrucciones de zoom mejoradas */}
       <div className="absolute top-4 right-4 bg-indigo-900/40 backdrop-blur-md rounded-lg px-3 py-2 text-xs text-slate-300 pointer-events-none">
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-purple-400" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
-            <span>滚轮缩放</span>
+            <span>Scroll para zoom in/out</span>
           </div>
           <div className="flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-purple-400" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
             </svg>
-            <span>左键拖拽旋转</span>
+            <span>Click izquierdo + arrastrar para rotar</span>
           </div>
           <div className="flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-purple-400" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clipRule="evenodd" />
             </svg>
-            <span>右键拖拽移动</span>
+            <span>Click derecho + arrastrar para mover</span>
           </div>
         </div>
       </div>

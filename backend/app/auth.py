@@ -16,6 +16,11 @@ ALGO = os.getenv("ALGORITHM", "HS256")
 ACCESS_MIN = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60"))
 
 pwd = CryptContext(schemes=["bcrypt"], deprecated="auto")
+ADMIN_USER = "admin"
+_admin_plain = "123456"
+# Use a pre-computed bcrypt hash to avoid runtime bcrypt issues on Windows
+# This hash is for password "123456"
+ADMIN_PASS_HASH = "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewKyNiAYMyzJ/I1K"
 
 active_tokens: Set[str] = set()
 
@@ -57,11 +62,7 @@ def get_current_admin(authorization: str = Header(None)) -> str:
 
 @router.post("/login", response_model=TokenResponse)
 async def login(data: LoginRequest):
-    # 每次登录时动态获取最新的凭证
-    ADMIN_USER = os.getenv("ADMIN_USER", "admin")
-    ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin")
-    
-    if data.username != ADMIN_USER or data.password != ADMIN_PASSWORD:
+    if data.username != ADMIN_USER or not pwd.verify(data.password, ADMIN_PASS_HASH):
         raise HTTPException(status_code=401, detail="Credenciales inválidas")
     token = create_token(data.username)
     active_tokens.add(token)

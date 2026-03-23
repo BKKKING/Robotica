@@ -23,16 +23,16 @@ function App() {
               <Login />
             </div>
           </header>
-          
+
           <main className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-            {/* Panel de controles - Columna izquierda */}
+            {/* 控制面板 - 左列 */}
             <section className="space-y-6 overflow-y-auto">
               <div className="rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-indigo-500/10 shadow-xl shadow-indigo-900/10 p-6 space-y-4 transition-all duration-300 hover:shadow-indigo-800/20 hover:bg-slate-800/50">
                 <div className="flex items-center gap-3 mb-2">
                   <label className="text-sm font-medium text-indigo-300">控制模式</label>
-                  <select 
+                  <select
                     className="flex-1 px-4 py-2 rounded-full bg-slate-700/50 border border-indigo-500/30 text-indigo-100 outline-none focus:ring-2 focus:ring-purple-500/50 transition-all cursor-pointer hover:bg-slate-700/70"
-                    value={mode} 
+                    value={mode}
                     onChange={e => setMode(e.target.value as any)}
                   >
                     <option value='sequential'>顺序</option>
@@ -41,7 +41,7 @@ function App() {
                 </div>
                 <Controls mode={mode} />
               </div>
-              
+
               <div className="rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-indigo-500/10 shadow-xl shadow-indigo-900/10 p-6 flex flex-col h-[calc(100vh-25rem)] transition-all duration-300 hover:shadow-indigo-800/20 hover:bg-slate-800/50">
                 <h2 className="text-xl font-semibold text-indigo-200 mb-4 flex items-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-400" viewBox="0 0 20 20" fill="currentColor">
@@ -52,8 +52,8 @@ function App() {
                 <MovementList mode={mode} />
               </div>
             </section>
-            
-            {/* Panel 3D - Columna derecha */}
+
+            {/* 3D 面板 - 右列 */}
             <section className="min-h-0">
               <div className="rounded-2xl bg-slate-800/40 backdrop-blur-lg border border-indigo-500/10 shadow-xl shadow-indigo-900/10 p-6 h-full flex flex-col transition-all duration-300 hover:shadow-indigo-800/20 hover:bg-slate-800/50">
                 <div className="flex items-center justify-between mb-6">
@@ -68,19 +68,19 @@ function App() {
                       <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                       <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
                     </svg>
-                    点击拖拽旋转，滚轮缩放
+                    点击+拖动旋转，滚动缩放
                   </div>
                 </div>
                 <div className="flex-1 min-h-0 bg-gradient-to-br from-slate-900 to-indigo-950 rounded-xl overflow-hidden border border-indigo-500/10">
-                  {/* Note: The Robot3D component needs to be modified to remove the black plane */}
+                  {/* 注意: Robot3D 组件需要修改以移除黑色平面 */}
                   <Robot3D />
                 </div>
               </div>
             </section>
           </main>
-          
+
           <footer className="text-center py-4 text-slate-500 text-sm bg-black/20 backdrop-blur-md border-t border-indigo-500/10">
-            用心开发 💫 | 机器人 - 第8学期
+            机器人技术 - 第八学期 💫
           </footer>
         </div>
       </SocketProvider>
