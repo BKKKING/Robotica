@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 interface SocketContextType {
   status: string
   messages: string[]
+  latestMessage: string | null
   send: (msg: string) => void
 }
 
@@ -13,17 +14,24 @@ export function SocketProvider({ children }: { children: ReactNode }) {
   const wsRef = useRef<WebSocket | null>(null)
   const [status, setStatus] = useState('desconectado')
   const [messages, setMessages] = useState<string[]>([])
+  const [latestMessage, setLatestMessage] = useState<string | null>(null)
 
   useEffect(() => {
     let retry: number | null = null
     let cancelled = false
+    
+    const handleMessage = (ev: MessageEvent) => {
+      setLatestMessage(ev.data)
+      setMessages(prev => [...prev.slice(-99), ev.data])
+    }
+    
     const connect = () => {
       if (cancelled) return
       setStatus('conectando')
       const ws = new WebSocket('ws://localhost:8000/ws')
       wsRef.current = ws
       ws.onopen = () => setStatus('conectado')
-      ws.onmessage = ev => setMessages(prev => [...prev, ev.data])
+      ws.onmessage = handleMessage
       ws.onerror = () => setStatus('error')
       ws.onclose = () => {
         setStatus('desconectado')
@@ -45,7 +53,7 @@ export function SocketProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <SocketContext.Provider value={{ status, messages, send }}>
+    <SocketContext.Provider value={{ status, messages, latestMessage, send }}>
       {children}
     </SocketContext.Provider>
   )

@@ -1,0 +1,166 @@
+INFO:     Will watch for changes in these directories: ['/Users/edy/Downloads/Robotica-frontend/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [21463] using StatReload
+/Users/edy/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/edy/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/edy/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/edy/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+INFO:app:HTTP + WebSocket endpoints registered.
+INFO:     Started server process [21477]
+INFO:     Waiting for application startup.
+INFO:app.core.firebase:Firebase credentials not found; skipping Firebase init.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:59662 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection open
+INFO:     127.0.0.1:59664 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59669 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59671 - "POST /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59673 - "POST /robot/sequential/reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59675 - "POST /robot/sequential/enqueue HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59677 - "POST /robot/sequential/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59679 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59681 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59683 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59685 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59687 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59689 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59691 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59693 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59695 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59697 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59699 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59703 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 2
+INFO:     connection open
+INFO:     127.0.0.1:59707 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59709 - "POST /robot/state HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:app.websocket:WebSocket disconnected. Active connections: 1
+INFO:     127.0.0.1:59737 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 2
+INFO:     connection open
+INFO:     127.0.0.1:59739 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59741 - "POST /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59743 - "POST /robot/sequential/reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59745 - "POST /robot/sequential/enqueue HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59747 - "POST /robot/sequential/start HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:app.websocket:WebSocket disconnected. Active connections: 1
+INFO:     connection closed
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     127.0.0.1:59779 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59781 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59783 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection open
+INFO:     127.0.0.1:59793 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59795 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59797 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 2
+INFO:     127.0.0.1:59793 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     connection open
+INFO:     127.0.0.1:59799 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:app.websocket:WebSocket disconnected. Active connections: 1
+INFO:     127.0.0.1:59801 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 2
+INFO:     connection open
+INFO:     127.0.0.1:59806 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59841 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 3
+INFO:     connection open
+INFO:     127.0.0.1:59843 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59845 - "POST /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59847 - "POST /robot/sequential/reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59849 - "POST /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59851 - "POST /robot/sequential/enqueue HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59853 - "POST /robot/sequential/start HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:app.websocket:WebSocket disconnected. Active connections: 2
+INFO:app.websocket:WebSocket disconnected. Active connections: 1
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:59868 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59872 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59871 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection open
+INFO:     127.0.0.1:59868 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:59874 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     127.0.0.1:59876 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection open
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     connection closed
+INFO:     127.0.0.1:59887 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59891 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59890 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection closed
+INFO:     127.0.0.1:59887 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     127.0.0.1:59893 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59895 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection open
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     connection closed
+INFO:     127.0.0.1:59902 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59906 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59905 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection closed
+INFO:     127.0.0.1:59902 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     127.0.0.1:59908 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59910 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection open
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     connection closed
+INFO:     127.0.0.1:59916 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59919 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59920 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection open
+INFO:     127.0.0.1:59916 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:59922 - "GET /robot/state HTTP/1.1" 200 OK
+INFO:app.websocket:WebSocket disconnected. Active connections: 0
+INFO:     127.0.0.1:59924 - "WebSocket /ws" [accepted]
+INFO:app.websocket:New WebSocket connection. Active connections: 1
+INFO:     connection open
+INFO:     127.0.0.1:59928 - "OPTIONS /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59928 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "OPTIONS /robot/sequential/enqueue HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "POST /robot/sequential/enqueue HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "POST /robot/sequential/enqueue HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "OPTIONS /robot/sequential/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "POST /robot/sequential/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "OPTIONS /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59932 - "POST /robot/sequential/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59932 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59932 - "POST /robot/sequential/enqueue HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59932 - "POST /robot/sequential/enqueue HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59932 - "POST /robot/sequential/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59932 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "OPTIONS /robot/sequential/reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "POST /robot/sequential/reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "POST /robot/sequential/reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "POST /robot/sequential/reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "POST /robot/sequential/reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "GET /robot/sequential/list HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:app.websocket:WebSocket disconnected. Active connections: 0

@@ -211,9 +211,7 @@ async def start_seq(_admin: str = AdminDep):
                 ran.append(step)
             await _broadcast_event("STATE_UPDATE", robot_state)
         finally:
-            nonlocal_ran[:] = ran  # store result
             _end_simulation()
-    nonlocal_ran: List[dict] = []
     asyncio.create_task(runner())
     return {"detail": "Simulación secuencial iniciada"}
 
