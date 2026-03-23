@@ -132,6 +132,20 @@ export function Controls({ mode }: ControlsProps) {
     setBase(currentAngles.base)
     setHombro(currentAngles.hombro)
     setCodo(currentAngles.codo)
+    // 在顺序模式下同步更新当前选中关节的角度滑块
+    if (mode === 'sequential') {
+      switch (joint) {
+        case 'base':
+          setAngle(currentAngles.base)
+          break
+        case 'hombro':
+          setAngle(currentAngles.hombro)
+          break
+        case 'codo':
+          setAngle(currentAngles.codo)
+          break
+      }
+    }
 
     playIntervalRef.current = window.setTimeout(() => {
       setCurrentPlayIndex(prev => prev + 1)
